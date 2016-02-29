@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Mapwrapper Test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            #map {
+                height: 500px;
+                width: 600px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        
+        <script src="../src/mapwrapper.js"></script>
+        <script>
+            var mapWrapperObj = new mapWrapper("gmaps", document.getElementById("map"), {
+                lat: -34.397,
+                lng: 150.644,
+                zoom: 8
+            }, function(){
+                console.log("Callback!");
+                var marker = mapWrapperObj.addMarker(-34.397, 150.644);
+                mapWrapperObj.globalMarkers.push(marker);
+            });
+        </script>
+        <script async defer
+	src="https://maps.googleapis.com/maps/api/js?callback=mapWrapperObj.initialize">
+</script>
+    </body>
+</html>
